@@ -25,6 +25,7 @@ namespace simpleCalculator
             InitializeComponent();
         }
 
+        /*
         private void primeNumber(object sender, RoutedEventArgs e)
         {
             if(int.TryParse(number.Text, out int num) && num>=0)
@@ -98,5 +99,6 @@ namespace simpleCalculator
             }
             return s;
         }
+        */
     }
 }

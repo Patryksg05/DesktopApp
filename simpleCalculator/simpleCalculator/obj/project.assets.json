@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Patryk\\.nuget\\packages\\": {}
+    "C:\\Users\\Patryksg05\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Patryk\\source\\repos\\simpleCalculator\\simpleCalculator\\simpleCalculator.csproj",
+      "projectUniqueName": "C:\\Users\\Patryksg05\\OneDrive\\Pulpit\\DesktopApp\\simpleCalculator\\simpleCalculator\\simpleCalculator.csproj",
       "projectName": "simpleCalculator",
-      "projectPath": "C:\\Users\\Patryk\\source\\repos\\simpleCalculator\\simpleCalculator\\simpleCalculator.csproj",
-      "packagesPath": "C:\\Users\\Patryk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Patryk\\source\\repos\\simpleCalculator\\simpleCalculator\\obj\\",
+      "projectPath": "C:\\Users\\Patryksg05\\OneDrive\\Pulpit\\DesktopApp\\simpleCalculator\\simpleCalculator\\simpleCalculator.csproj",
+      "packagesPath": "C:\\Users\\Patryksg05\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Patryksg05\\OneDrive\\Pulpit\\DesktopApp\\simpleCalculator\\simpleCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Patryk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Patryksg05\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
