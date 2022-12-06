@@ -29,7 +29,7 @@
         <Button Content="PRIME" Grid.Row="2" Click="prime_number"/>
         <TextBlock Text="isPrime" Grid.Row="3" TextAlignment="Center"
                    VerticalAlignment="Center" x:Name="primeText"/>
-        
+
         <Button Content="SIEVE1" Grid.Column="1" Grid.Row="2" Click="sieve1"/>
         <TextBlock Text="SIEVE1" Grid.Column="1" Grid.Row="3" TextAlignment="Center"
                    VerticalAlignment="Center" x:Name="sieveText1" TextWrapping="Wrap"/>
@@ -69,8 +69,20 @@
             <TextBlock Text="DV" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Center"
                        TextWrapping="Wrap" x:Name="dividers_text"/>
         </Grid>
-        
 
+        <Grid Grid.Column="2" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Content="POW" Margin="10" FontSize="10" Click="pow_number"/>
+            <TextBlock Text="POW" Grid.Row="1" VerticalAlignment="Center" 
+                       TextAlignment="Center" TextWrapping="Wrap" x:Name="pow_text"/>
+        </Grid>
+        
     </Grid>
-    
 </Window>

@@ -81,7 +81,15 @@ namespace simpleCalculator
                 dividers(num);
             }
         }
-
+        
+        private void pow_number(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(result.Text, out int num) && num > 0)
+            {
+                pow_text.Text = " ";
+                pow_text.Text = math_pow_function(num, 2).ToString();
+            }
+        }
 
         private bool isPrime(int n)
         {
@@ -167,6 +175,13 @@ namespace simpleCalculator
             for (int i = 1; i <= n; i++)
                 if (n % i == 0)
                     dividers_text.Text += i.ToString() + " ";
+        }
+
+        private long math_pow_function(int n, int x)
+        {
+            if (x == 0)
+                return 1;
+            return n*math_pow_function(n, x - 1);
         }
     }
 }
