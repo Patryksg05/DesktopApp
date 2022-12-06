@@ -42,6 +42,35 @@
         <TextBlock Text="FACTOR" Grid.Column="3" Grid.Row="3" TextAlignment="Center"
                    VerticalAlignment="Center" x:Name="factorText" TextWrapping="Wrap"/>
 
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Content="NWD" Margin="10" FontSize="10" Click="nwd_number"/>
+            <TextBlock Text="NWD" Grid.Row="1" VerticalAlignment="Center" TextWrapping="Wrap"
+                       TextAlignment="Center" x:Name="nwd_text"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Content="DV" Margin="10" FontSize="10" Click="dividers_number"/>
+            <TextBlock Text="DV" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Center"
+                       TextWrapping="Wrap" x:Name="dividers_text"/>
+        </Grid>
+        
+
     </Grid>
     
 </Window>

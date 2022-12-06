@@ -1,4 +1,5 @@
-﻿using DevExpress.Utils.CommonDialogs.Internal;
+﻿using DevExpress.DirectX.NativeInterop.Direct2D.CCW;
+using DevExpress.Utils.CommonDialogs.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace simpleCalculator
         {
             if (int.TryParse(result.Text, out int num) && num > 0)
             {
-                if (isPrime(num))
+                if (isPrime2(num))
                     primeText.Text = isPrime(num).ToString();
                 else
                     primeText.Text = isPrime(num).ToString();
@@ -46,6 +47,15 @@ namespace simpleCalculator
             }
             else
                 factorText.Text = "CPU has problem..";
+        }
+
+        private void nwd_number(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(result.Text, out int num) && num > 0)
+            {
+                nwd_text.Text = " ";
+                nwd_text.Text = nwd(num, 4).ToString();
+            }
         }
 
         private void sieve1(object sender, RoutedEventArgs e)
@@ -64,6 +74,15 @@ namespace simpleCalculator
             }
         }
 
+        private void dividers_number(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(result.Text, out int num) && num>0)
+            {
+                dividers(num);
+            }
+        }
+
+
         private bool isPrime(int n)
         {
             if (n < 2)
@@ -71,6 +90,21 @@ namespace simpleCalculator
             for (int i = 2; i < n; i++)
                 if (n % i == 0) return false;
             return true;
+        }
+
+        private bool isPrime2(int n)
+        {
+            bool prime = true;
+
+            int i = 1;
+            while (i * i <= n)
+                i++;
+
+            for(int k=2; k<i; k++)
+                if(n%k==0)
+                    prime = false;
+
+            return prime;
         }
 
         private int factor(int n)
@@ -117,5 +151,22 @@ namespace simpleCalculator
                     sieveText2.Text += i.ToString() + " ";
         }
 
+        private int nwd(int a, int b)
+        {
+            while (a != b)
+                if (a > b)
+                    a -= b;
+                else
+                    b -= a;
+            return a; 
+        }
+
+        private void dividers(int n)
+        {
+            dividers_text.Text = " ";   
+            for (int i = 1; i <= n; i++)
+                if (n % i == 0)
+                    dividers_text.Text += i.ToString() + " ";
+        }
     }
 }
