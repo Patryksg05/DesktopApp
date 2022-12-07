@@ -179,8 +179,8 @@ namespace simpleCalculator
             for (int i = 2; i < n; i++)
                 if (prime[i] == true)
                     sieveText2.Text += i.ToString() + " ";
-            // result += i.ToString() + " ";
 
+            //result += i.ToString() + " ";
             // MessageBox.Show(result);
         }
 
@@ -213,5 +213,5 @@ namespace simpleCalculator
 
 /** CONVERT ZMIENNYCH   
     *  int to string => ToString()
-    *  
+    *  string to int => Int32.Parse(str)
  **/
