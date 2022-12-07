@@ -65,6 +65,17 @@ namespace simpleCalculator
                 lowerPrimeNumber(num);
             }
         }
+        private void fibonacci_sequance(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(result.Text, out int num) && num>0)
+            {
+                String result = " ";
+                for (int i = 0; i < num; i++)
+                    result += fibonacci_sequance(i).ToString() + " ";
+                // MessageBox.Show(result);
+                fs_text.Text = result;
+            }
+        }
 
         private void sieve2(object sender, RoutedEventArgs e)
         {
@@ -98,6 +109,16 @@ namespace simpleCalculator
             for (int i = 2; i < n; i++)
                 if (n % i == 0) return false;
             return true;
+        }
+
+        private int fibonacci_sequance(int n)
+        {
+            if (n == 0)
+                return 0;
+            else if (n == 1)
+                return 1;
+            else
+                return fibonacci_sequance(n - 1) + fibonacci_sequance(n - 2);
         }
 
         private bool isPrime2(int n)
@@ -154,9 +175,13 @@ namespace simpleCalculator
                         prime[i] = false;
             }
 
+            String result = "";
             for (int i = 2; i < n; i++)
                 if (prime[i] == true)
                     sieveText2.Text += i.ToString() + " ";
+            // result += i.ToString() + " ";
+
+            // MessageBox.Show(result);
         }
 
         private int nwd(int a, int b)
@@ -185,3 +210,8 @@ namespace simpleCalculator
         }
     }
 }
+
+/** CONVERT ZMIENNYCH   
+    *  int to string => ToString()
+    *  
+ **/

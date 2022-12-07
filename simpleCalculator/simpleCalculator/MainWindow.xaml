@@ -83,6 +83,21 @@
             <TextBlock Text="POW" Grid.Row="1" VerticalAlignment="Center" 
                        TextAlignment="Center" TextWrapping="Wrap" x:Name="pow_text"/>
         </Grid>
+
+        <Grid Grid.Column="3" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Content="FS" Margin="10" FontSize="10" Click="fibonacci_sequance"/>
+            <TextBlock Text="FS" Grid.Row="1" VerticalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="Wrap" x:Name="fs_text"/>
+
+        </Grid>
         
     </Grid>
 </Window>
