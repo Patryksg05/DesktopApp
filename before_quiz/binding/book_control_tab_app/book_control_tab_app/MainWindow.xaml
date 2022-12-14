@@ -1,0 +1,170 @@
+﻿<Window x:Class="book_control_tab_app.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:book_control_tab_app"
+        mc:Ignorable="d"
+        Title="OUUUUR LIBRARY" Height="450" Width="800">
+    <Grid>
+
+        <TabControl SelectedItem="1" TabStripPlacement="Top"
+                    BorderBrush="Black" BorderThickness="1">
+
+            <TabItem Header="MENU">
+                <Label Content="MAIN MENU"/>
+            </TabItem>
+
+            <TabItem Header="BOOK">
+                <StackPanel Orientation="Vertical">
+                    <DataGrid ItemsSource="{Binding Books}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              AllowDrop="False"
+                              CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="TITLE" Binding="{Binding Title}"/>
+                            <DataGridTextColumn Header="DESCRIPTION" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="AUTHOR" Binding="{Binding Author}"/>
+                            <DataGridTextColumn Header="REALASE DATE" Binding="{Binding ReleaseDate}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="ADD YOUR OWN BOOK TO US" FontSize="26"
+                           HorizontalAlignment="Center" FontWeight="Bold" Margin="0 15"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="TITLE" TextAlignment="Center"/>
+                        <TextBlock Text="DESCRIPTION" Grid.Column="1" TextAlignment="Center"/>
+                        <TextBlock Text="AUTHOR" Grid.Column="2" TextAlignment="Center"/>
+                        <TextBlock Text="REALASE DATE" Grid.Column="3" TextAlignment="Center"/>
+
+                        <TextBox Grid.Column="0" Grid.Row="1" x:Name="book_t"/>
+                        <TextBox Grid.Column="1" Grid.Row="1" x:Name="book_dsc"/>
+                        <TextBox Grid.Column="2" Grid.Row="1" x:Name="book_a"/>
+                        <TextBox Grid.Column="3" Grid.Row="1" x:Name="book_rd"/>
+
+                        <Button Content="SUBMIT" Grid.ColumnSpan="4" Grid.Row="2" 
+                                FontSize="16" Click="add_book_to_library"/>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+
+            <!--zwykle wypisywanie bez list boxa powoduje ze elementy sa 
+                nieklikalne i dostosowuja sie do h. && w. naszego okna, jezeli
+                dany element sie nie zmiesci to nie jest wyswietlony-->
+            <TabItem Header="CONTEXT CONTROL1">
+                <ItemsControl ItemsSource="{Binding StringCollection}"/>
+            </TabItem>
+
+
+            <!--automatycznie pojawia sie scrool, mamy mozwliwosc 
+                klikania w dany element-->
+            <TabItem Header="LIST BOOX">
+                <ListBox ItemsSource="{Binding Books}" x:Name="listBox1"
+                         SelectedItem="{Binding SelectedItem}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Id}"/>
+                                <Label Content="{Binding Title}"/>
+                                <Label Content="{Binding Description}"/>
+                                <Label Content="{Binding Author}"/>
+                                <Label Content="{Binding ReleaseDate}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ListBox>
+            </TabItem>
+
+            <TabItem Header="LIST VIIEEW">
+                <StackPanel>
+                    <ListView ItemsSource="{Binding Books}"
+                              SelectedItem="{Binding CheckedBook}">
+                        <!--
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Id}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Title}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Description}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Author}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding RealaseDate}"/>
+                            </GridView>
+                        </ListView.View>
+                        -->
+
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" 
+                                        Header="ID" Width="100"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Title}" 
+                                        Header="TITLE" Width="100"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Author}" 
+                                        Header="AUTHOR" Width="100"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" 
+                                        Header="DESCRIPTION" Width="100"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=ReleaseDate}" 
+                                        Header="REALASE DATE" Width="100"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <UniformGrid Columns="3" Rows="1" Width="200" Margin="0 20">
+                        <Button Content="SHOW" Click="show_checked"/>
+                        <Button Content="DELETE" Grid.Row="1" Click="delete_checked"/>
+                    </UniformGrid>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="LIST VIEEEEW 2">
+                <ListView>
+                    <ListViewItem>
+                        <Label Content="jakis label"/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="jakis label"/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="jakis label"/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="jakis label"/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="jakis label"/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="jakis label"/>
+                    </ListViewItem>
+                </ListView>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20" Fill="Red"/>
+                        <Label Content="sth"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ItemsControl>
+                    <Label Content="jakis zapis" HorizontalAlignment="Center"/>
+                    <Label Content="jakis zapis" HorizontalAlignment="Center"/>
+                    <Label Content="jakis zapis" HorizontalAlignment="Center"/>
+                </ItemsControl>
+
+            </TabItem>
+
+        </TabControl>
+        
+    </Grid>
+</Window>

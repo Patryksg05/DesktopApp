@@ -1,0 +1,151 @@
+﻿<Window x:Class="mathematic_app.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mathematic_app"
+        mc:Ignorable="d"
+        Title="MATHEMATIC APP" Height="450" Width="800">
+    <Grid>
+
+        <TabControl SelectedIndex="5" TabStripPlacement="Top"
+                    BorderBrush="Black" BorderThickness="1">
+
+            <TabItem Header="MENU">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Nothing here so far..."/>
+                </StackPanel>
+            </TabItem>
+
+            <!--zwykle wypisywanie bez list boxa powoduje ze elementy sa 
+                nieklikalne i dostosowuja sie do h. && w. naszego okna, jezeli
+                dany element sie nie zmiesci to nie jest wyswietlony-->
+            <TabItem Header="Context Control">
+                <ItemsControl ItemsSource="{Binding StringCollection}"/>
+            </TabItem>
+
+            <!--automatycznie pojawia sie scrool, mamy mozwliwosc 
+                klikania w dany element-->
+            <TabItem Header="ListBox">
+                <ListBox ItemsSource="{Binding AllFilms}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Name}"/>
+                                <Label Content="{Binding Description}"/>
+                                <Label Content="{Binding Rating}"/>
+                                <Label Content="{Binding Type}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ListBox>
+            </TabItem>
+
+            <!--elementy klikalne-->
+            <TabItem Header="ListView">
+                <StackPanel>
+                    <ListView ItemsSource="{Binding AllFilms}"
+                              SelectedItem="{Binding CheckedFilm}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Description}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Rating}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Type}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button Content="Show" Click="show_message"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="ListView2">
+                <ListView>
+                    <ListViewItem>
+                        <Label Content="sth..."/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="sth..."/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="sth..."/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="sth..."/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="sth..."/>
+                    </ListViewItem>                    
+                    <ListViewItem>
+                        <Label Content="sth..."/>
+                    </ListViewItem>
+                </ListView>
+            </TabItem>
+
+            <TabItem Header="DataGrid">
+                <StackPanel Orientation="Vertical">
+                    <DataGrid ItemsSource="{Binding AllFilms}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="true"
+                              AllowDrop="False"
+                              CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="TITLE" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Desription" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Rating" Binding="{Binding Rating}"/>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Content="ADD YOUR OWN FILM" Grid.ColumnSpan="4"
+                               HorizontalAlignment="Center" FontSize="20"/>
+                        <TextBlock Text="Title" Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Text="Description" Grid.Column="1" Grid.Row="1"/>
+                        <TextBlock Text="Rating" Grid.Column="2" Grid.Row="1"/>
+                        <TextBlock Text="Type" Grid.Column="3" Grid.Row="1"/>
+
+                        <TextBox Grid.Column="0" Grid.Row="2" x:Name="tit"/>
+                        <TextBox Grid.Column="1" Grid.Row="2" x:Name="dsc"/>
+                        <TextBox Grid.Column="2" Grid.Row="2" x:Name="rat"/>
+                        <TextBox Grid.Column="3" Grid.Row="2" x:Name="tp"/>
+
+                        <Button Grid.Row="3" Grid.ColumnSpan="4" Content="SUBMIT"
+                                Click="add_film_to_collection"/>
+                    </Grid>
+                    
+                </StackPanel>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20" Fill="Red"/>
+                        <Label Content="sth"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ItemsControl>
+                    <Label Content="jakis zapis" HorizontalAlignment="Center"/>
+                    <Label Content="jakis zapis" HorizontalAlignment="Center"/>
+                    <Label Content="jakis zapis" HorizontalAlignment="Center"/>
+                </ItemsControl>
+
+            </TabItem>
+
+        </TabControl>
+        
+    </Grid>
+</Window>
